@@ -136,7 +136,7 @@ void LLA::AddQueue(Player* leader)
     {
         if (!CheckPlayerEnterQueue(leader))
         {
-            handler.PSendSysMessage("# You cannot queue");
+            handler.PSendSysMessage("# 您不能排队");
             return;
         }
 
@@ -152,7 +152,7 @@ void LLA::AddQueue(Player* leader)
 
         LOG_DEBUG("bg.battleground", "Battleground: player joined queue for arena, skirmish, bg queue type {} bg type {}: {}, NAME {}", bgQueueTypeId, bgTypeId, leader->GetGUID().ToString(), leader->GetName());
 
-        handler.PSendSysMessage("# You entered arena skirmish queue %u/%u (%uv%u)",
+        handler.PSendSysMessage("# 您进入了竞技场战斗队列%u/%u (%uv%u)",
             bracketEntry->minLevel, bracketEntry->maxLevel, arenaType, arenaType);
     }
     // check if group can queue:
@@ -161,7 +161,7 @@ void LLA::AddQueue(Player* leader)
         // No group or not a leader group
         if (group->GetLeaderGUID() != leader->GetGUID())
         {
-            handler.PSendSysMessage("# You are not leader of group");
+            handler.PSendSysMessage("# 您不是队伍的队长");
             return;
         }
 
@@ -210,7 +210,7 @@ void LLA::AddQueue(Player* leader)
             sScriptMgr->OnPlayerJoinArena(member);
         });
 
-        handler.PSendSysMessage("# You entered arena skirmish queue %u/%u (%uv%u) in group",
+        handler.PSendSysMessage("# 您进入了队伍中的竞技场战斗队列%u/%u (%uv%u)",
             bracketEntry->minLevel, bracketEntry->maxLevel, arenaType, arenaType);
     }
 
